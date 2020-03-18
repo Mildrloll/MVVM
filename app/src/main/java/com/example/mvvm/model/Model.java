@@ -17,5 +17,6 @@ public class Model extends Observable {
         this.data = data;
         super.setChanged();
         super.notifyObservers();
+        return null;
     }
 }
