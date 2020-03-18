@@ -1,4 +1,4 @@
-package com.example.mvvm;
+package com.example.mvvm.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.mvvm.R;
+
+public class AndroidView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
