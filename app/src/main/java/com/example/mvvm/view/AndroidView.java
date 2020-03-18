@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.example.mvvm.R;
 
 public class AndroidView extends AppCompatActivity {
+    // TODO [milepæl 3] AndroidView skal indholde en instans af Model
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +20,14 @@ public class AndroidView extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                // TODO [milepæl 2] outputView skal opdateres med indholdet fra inputText
+                // TODO [milepæl 3] Instansen af Model skal opdateres med indholdet fra inputText
+                // TODO [milepæl 3] outputView skal opdateres med indholdet fra instansen af Model
             }
         });
     }
 
+    // TODO Denne metode bliver aldrig brugt (slet)
     public void enterData(View view) {
         EditText editText = (EditText) findViewById(R.id.inputText);
         String input = editText.getText().toString();
