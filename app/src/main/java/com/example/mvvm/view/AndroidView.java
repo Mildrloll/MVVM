@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.mvvm.R;
 
@@ -21,5 +22,10 @@ public class AndroidView extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void enterData(View view) {
+        EditText editText = (EditText) findViewById(R.id.inputText);
+        String input = editText.getText().toString();
     }
 }

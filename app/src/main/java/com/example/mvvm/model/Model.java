@@ -1,13 +1,21 @@
 package com.example.mvvm.model;
 
-public class Model {
+import java.util.Observable;
+
+public class Model extends Observable {
     private String data;
+
+    public Model() {
+        data = "Hello";
+    }
 
     public String getData() {
         return data;
     }
 
     public String setData(String data) {
-        return null;
+        this.data = data;
+        super.setChanged();
+        super.notifyObservers();
     }
 }
