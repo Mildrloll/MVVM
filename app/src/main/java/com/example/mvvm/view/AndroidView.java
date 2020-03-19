@@ -11,26 +11,37 @@ import android.widget.TextView;
 import com.example.mvvm.R;
 import com.example.mvvm.model.Model;
 
+import java.util.Observable;
+import java.util.Observer;
+
 public class AndroidView extends AppCompatActivity {
-    // TODO [milepæl 3] AndroidView skal indholde en instans af Model
     private Model model = new Model();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        observeModel(model);
         final Button button = findViewById(R.id.enterButton);
         final EditText editText = findViewById(R.id.inputText);
-        final TextView textView = findViewById(R.id.outputView);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String input = editText.getText().toString();
-                textView.setText(input);
-                // TODO [milepæl 3] Instansen af Model skal opdateres med indholdet fra inputText
                 model.setData(input);
-                // TODO [milepæl 3] outputView skal opdateres med indholdet fra instansen af Model
-                textView.setText(model.getData());
+            }
+        });
+    }
+
+    private void observeModel(Model model) {
+        model.addObserver(new Observer() {
+            @Override
+            public void update(Observable observable, Object o) {
+                if (observable instanceof Model) {
+                    String data = ((Model) observable).getData();
+                    final TextView textView = findViewById(R.id.outputView);
+                    textView.setText(data);
+                }
             }
         });
     }

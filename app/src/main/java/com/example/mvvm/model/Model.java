@@ -13,10 +13,9 @@ public class Model extends Observable {
         return data;
     }
 
-    public String setData(String data) {
+    public void setData(String data) {
         this.data = data;
         super.setChanged();
         super.notifyObservers();
-        return null;
     }
 }
